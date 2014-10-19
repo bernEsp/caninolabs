@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "CaninoLabs" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <header class="fixed contain-to-grid">
+      <nav class="top-bar"  role="navigation">
+        <ul class="title-area">
+          <li class="name">
+            <%= link_to (image_tag "canino_identity.png"), root_path %>
+          </li>
+        </ul>
+        <section class="top-bar-section">
+          <ul class="right">
+            <li><%= link_to "Home", page_path('home')%></li>
+            <li><%= link_to "Work flow", page_path('work')%></li>
+            <li><%= link_to "About us", page_path('about')%></li>
+          </ul
+        </section>
+      </nav>
+    </header>
+    <section role="introduction" class="scroll-container main-container">
+      <%= yield(:introduction) %>
+    </section>
+    <section role="main"  class="scroll-container main-container">
+      <%= yield(:main) %>
+    </section>
+    <section role="final"  class="scroll-container main-container">
+      <%= yield(:final) %>
+    </section>
+    <%= javascript_include_tag "application" %>
+  </body>
+</html>
